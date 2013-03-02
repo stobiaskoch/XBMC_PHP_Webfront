@@ -190,8 +190,8 @@ if (file_exists("../banners/thm_".$movie."_small.jpg")) { } else {
 		file_put_contents("../banners/thm_$movie.jpg",
 			file_get_contents("http://www.thetvdb.com/banners/{$ban}"));
 			
-			$size = getimagesize("./banners/thm_$movie.jpg");
-			$src_img = imagecreatefromjpeg("./banners/thm_$movie.jpg");
+			$size = getimagesize("../banners/thm_$movie.jpg");
+			$src_img = imagecreatefromjpeg("../banners/thm_$movie.jpg");
 $dst_img = imagecreatetruecolor(252,46);
 imagecopyresampled($dst_img, $src_img, 0, 0, 0, 0, 252, 46, $size[0], $size[1]);
 imagejpeg($dst_img, "../banners/thm_".$movie."_small.jpg");
