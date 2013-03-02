@@ -221,10 +221,10 @@ imagedestroy($dst_img);
 if (file_exists("../banners/thm_".$movie."_small.jpg")) {
 
 echo "<a href='addserie.php?friends=$movie' target='film'><img src='../banners/thm_".$movie."_small.jpg' width='252' height='46'/></a><br>";
-echo "<img src='images/spacer.jpg' width='1' height='3' alt=''>";
+echo "<img src='../images/spacer.jpg' width='1' height='3' alt=''>";
 } else {
 echo "<a href='addserie.php?friends=$movie' target='film'><img src='../banners/thm_".$movie.".png' width='252' height='46'/></a><br>";
-echo "<img src='images/spacer.jpg' width='1' height='3' alt=''>";
+echo "<img src='../images/spacer.jpg' width='1' height='3' alt=''>";
 }
  
 }
