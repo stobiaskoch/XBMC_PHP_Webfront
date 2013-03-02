@@ -1,9 +1,10 @@
 <?php
 
 $dbhost = "localhost";
-$dbuser = "xbmc";
-$dbpass = "xbmc";
-$dbase = "MyVideos75";
+$dbuser = "USERNAME";
+$dbpass = "PASSWORT";
+//Datenbankname normalerweise MyVideos75
+$dbase = "DATENBANK";
 
 $db_link = mysql_connect($dbhost, $dbuser, $dbpass);
 $db_sel = mysql_select_db($dbase)
