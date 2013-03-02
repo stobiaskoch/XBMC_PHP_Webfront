@@ -12,10 +12,9 @@ body { font-family: 'Marcellus', serif; }
 <?php
 $movie=$_REQUEST["friends"];
 if($movie=="") {goto a;}
-include_once 'imdb.class.php';
-$db_link = mysql_connect('localhost', 'xbmc', 'xbmc');
-$db_sel = mysql_select_db('MyVideos75')
-   or die("Auswahl der Datenbank fehlgeschlagen");
+
+//Verbinde Datenbank
+include 'config.php';
    
    
    
@@ -37,7 +36,7 @@ $sql = "SELECT * FROM movie WHERE c09='$movie'";
 
   $movie=$zeile['c12'];
   $movie2=str_replace('tt', '', $movie);
-  $filename="./banners/thm_".$movie.".jpg";
+  $filename="../banners/thm_".$movie.".jpg";
   	$title=$zeile['c00'];
 //	echo "&nbsp;&nbsp;&nbsp;$title</h1>($movie)<h1>";
 	$tileleng = strlen($title);
@@ -47,10 +46,9 @@ $sql = "SELECT * FROM movie WHERE c09='$movie'";
   include 'uploadformserie2.php';
     echo "&nbsp;<img src=$filename width='758' height='140'>"; 
 echo "<br>";
-	echo "<span style='font-size:$fontsize'>&nbsp;$title</span><span style='font-variant:small-caps'>&nbsp;&nbsp;($movie)</span>";
+	echo "<span style='font-size:$fontsize'>&nbsp;$title</span><span style='font-variant:small-caps'>&nbsp;&nbsp;(tvdb$movie)</span>";
 } else {
-    $oIMDB = new IMDB($movie);
-  $oIMDB->getPoster();
+
   
   
   if (file_exists($filename)) {include 'uploadformserie2.php';} else {

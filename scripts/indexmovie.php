@@ -17,7 +17,7 @@ if($filter=="") {$filter="KeinFilter"; $xno="selected";}
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Ajax Auto Suggest</title>
 </style> 
-<script type="text/javascript" src="scripts/jquery-1.2.1.pack.js"></script>
+<script type="text/javascript" src="jquery-1.2.1.pack.js"></script>
 <script type="text/javascript">
 	function lookup(inputString) {
 		if(inputString.length == 0) {
@@ -154,7 +154,7 @@ position:fixed;
 			
 			<div class="suggestionsBox" id="suggestions" style="position:absolute; display: none; z-index:3;">
 
-				<img src="images/upArrow.png" style="position: relative; top: -12px; left: 30px;" alt="upArrow" />
+				<img src="../images/upArrow.png" style="position: relative; top: -12px; left: 30px;" alt="upArrow" />
 				<div class="suggestionList" id="autoSuggestionsList">
 					&nbsp;
 					</div>
@@ -178,7 +178,7 @@ position:fixed;
 <br><br><br><br><br><br>
 
 <?php
-echo "<img style='position:absolute; top:0px; left:0px; z-index:-2; position:fixed;' src=images/back.jpg width='500' height='106'>";
+echo "<img style='position:absolute; top:0px; left:0px; z-index:-2; position:fixed;' src=../images/back.jpg width='500' height='106'>";
 $movienr="0";
 
 
@@ -221,9 +221,9 @@ $sql = "SELECT * FROM movie WHERE c09='$movie'";
 
   $movie=$zeile['idMovie'];
   $codecpic="";
-  if($iVideoHeight>="1279") {$codecpic="&nbsp;&nbsp;<img src='images/vres_720.png' width='34' height='14'>"; $codec2="720";}
-  if($iVideoHeight>="1919") {$codecpic="&nbsp;&nbsp;<img src='images/vres_1080.png' width='34' height='14'>"; $codec2="1080";}
-  if($iVideoHeight<="1278") {$codecpic="&nbsp;&nbsp;<img src='images/vcodec_div1.png' width='34' height='14'>"; $codec2="xvid";}
+  if($iVideoHeight>="1279") {$codecpic="&nbsp;&nbsp;<img src='../images/vres_720.png' width='34' height='14'>"; $codec2="720";}
+  if($iVideoHeight>="1919") {$codecpic="&nbsp;&nbsp;<img src='../images/vres_1080.png' width='34' height='14'>"; $codec2="1080";}
+  if($iVideoHeight<="1278") {$codecpic="&nbsp;&nbsp;<img src='../images/vcodec_div1.png' width='34' height='14'>"; $codec2="xvid";}
   $moviename=$zeile['c00'];
   
 //Filter einstellen

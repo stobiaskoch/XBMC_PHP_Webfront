@@ -2,13 +2,13 @@
    // Configuration - Your Options
       $allowed_filetypes = array('.jpg','.gif','.bmp','.png'); // These will be the types of file that will pass the validation.
       $max_filesize = 524288; // Maximum filesize in BYTES (currently 0.5MB).
-      $upload_path = './posters/'; // The place the files will be uploaded to (currently a 'files' directory).
+      $upload_path = '../posters/'; // The place the files will be uploaded to (currently a 'files' directory).
 	  $movie2=$_REQUEST["movie"];
 	  $movieold=$_REQUEST["movieold"];
-	  if (file_exists("posters/".$movieold.".jpg")) {
-	  	  unlink("posters/".$movieold.".jpg");
+	  if (file_exists("../posters/".$movieold.".jpg")) {
+	  	  unlink("../posters/".$movieold.".jpg");
 		 }
-	  echo "posters/".$movieold.".jpg";
+	  echo "../posters/".$movieold.".jpg";
 	  
 	  
    $filename = "$movie2.jpg"; // Get the name of the file (including file extension).

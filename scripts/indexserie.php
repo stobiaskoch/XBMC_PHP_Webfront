@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Ajax Auto Suggest</title>
 </style> 
-<script type="text/javascript" src="scripts/jquery-1.2.1.pack.js"></script>
+<script type="text/javascript" src="jquery-1.2.1.pack.js"></script>
 <script type="text/javascript">
 	function lookup(inputString) {
 		if(inputString.length == 0) {
@@ -128,11 +128,11 @@ color:#FFFFFF;
 			<legend style='color:yellowgreen; background-color: black; border: 10px;'>Volltextsuche</legend>
 				<input type="text" size=20% value="" id="inputString" onkeyup="lookup(this.value);" onblur="fill();" name="friends" autocomplete="off"/>
 				<input type = 'submit'  name = 'submit3' value = 'Go' hidden>
-				<a href='index.html' target="_top">Filme</a>
+				<a href='../index.html' target="_top">Filme</a>
 			</div>
 			</fieldset>
 			<div class="suggestionsBox" id="suggestions" style="position:absolute; display: none;">
-				<img src="images/upArrow.png" style="position: relative; top: -12px; left: 30px;" alt="upArrow" />
+				<img src="../images/upArrow.png" style="position: relative; top: -12px; left: 30px;" alt="upArrow" />
 				<div class="suggestionList" id="autoSuggestionsList">
 					&nbsp;
 				</div>
@@ -142,17 +142,13 @@ color:#FFFFFF;
 
 <br>
 <?php
-echo "<img style='position:absolute; top:0px; left:0px; z-index:0; position:fixed;' src=images/back.jpg width='500' height='90'>";
+echo "<img style='position:absolute; top:0px; left:0px; z-index:0; position:fixed;' src=../images/back.jpg width='500' height='90'>";
 echo "<br>";
 echo "<br>";
 echo "<br>";
 $movienr="0";
-$db_link = mysql_connect('localhost', 'xbmc', 'xbmc');
- 
-// Nutzen von Datenbank - Name ist hinterlegt in
-// Konstante MYSQL_DATENBANK
-$db_sel = mysql_select_db('MyVideos75')
-   or die("Auswahl der Datenbank fehlgeschlagen");
+//Verbinde Datenbank
+include 'config.php';
  mysql_query("SET NAMES 'utf8'");
 $sql = "SELECT * FROM tvshow ORDER BY `c00` ASC";
  
@@ -174,7 +170,7 @@ $movienr++;
 $file="http://thetvdb.com/api/EABE49B30EC05867/series/$movie/de.xml";
 echo "<br>";
 
-if (file_exists("./banners/thm_".$movie."_small.jpg")) { } else {
+if (file_exists("../banners/thm_".$movie."_small.jpg")) { } else {
 //include 'serie.php';
 
 		$dst = $path.'./zip/info.zip';
@@ -191,14 +187,14 @@ if (file_exists("./banners/thm_".$movie."_small.jpg")) { } else {
 		$series = basename($path);
 		$endung = substr( strrchr($ban, '.'), 1);
 		if($endung=="jpg") {
-		file_put_contents("./banners/thm_$movie.jpg",
+		file_put_contents("../banners/thm_$movie.jpg",
 			file_get_contents("http://www.thetvdb.com/banners/{$ban}"));
 			
 			$size = getimagesize("./banners/thm_$movie.jpg");
 			$src_img = imagecreatefromjpeg("./banners/thm_$movie.jpg");
 $dst_img = imagecreatetruecolor(252,46);
 imagecopyresampled($dst_img, $src_img, 0, 0, 0, 0, 252, 46, $size[0], $size[1]);
-imagejpeg($dst_img, "./banners/thm_".$movie."_small.jpg");
+imagejpeg($dst_img, "../banners/thm_".$movie."_small.jpg");
 imagedestroy($src_img);
 imagedestroy($dst_img);	
 //echo "lösche ./banners/thm_$movie.jpg $series";
@@ -206,7 +202,7 @@ imagedestroy($dst_img);
 		}
 		else 
 		{
-		file_put_contents("./banners/thm_$movie.png",
+		file_put_contents("../banners/thm_$movie.png",
 			file_get_contents("http://www.thetvdb.com/banners/{$ban}"));
 			}
 		
@@ -222,12 +218,12 @@ imagedestroy($dst_img);
 //echo "&nbsp;<img src='./banners/thm_".$movie."_small.jpg' width='252' height='46'/>"; 
 
 
-if (file_exists("./banners/thm_".$movie."_small.jpg")) {
+if (file_exists("../banners/thm_".$movie."_small.jpg")) {
 
-echo "<a href='addserie.php?friends=$movie' target='film'><img src='./banners/thm_".$movie."_small.jpg' width='252' height='46'/></a><br>";
+echo "<a href='addserie.php?friends=$movie' target='film'><img src='../banners/thm_".$movie."_small.jpg' width='252' height='46'/></a><br>";
 echo "<img src='images/spacer.jpg' width='1' height='3' alt=''>";
 } else {
-echo "<a href='addserie.php?friends=$movie' target='film'><img src='./banners/thm_".$movie.".png' width='252' height='46'/></a><br>";
+echo "<a href='addserie.php?friends=$movie' target='film'><img src='../banners/thm_".$movie.".png' width='252' height='46'/></a><br>";
 echo "<img src='images/spacer.jpg' width='1' height='3' alt=''>";
 }
  

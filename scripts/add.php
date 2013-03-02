@@ -61,11 +61,10 @@ $ip=$_SERVER['REMOTE_ADDR'];
 if($ip!="192.168.2.2") { goto a; }
 $movie=$_REQUEST["friends"];
 $movieid2=$movie;
-//if($movie=="") {goto a;}
-include_once 'imdb.class.php';
-$db_link = mysql_connect('localhost', 'xbmc', 'xbmc');
-$db_sel = mysql_select_db('MyVideos75')
-   or die("Auswahl der Datenbank fehlgeschlagen");
+
+include_once '../imdb.class.php';
+//Verbinde Datenbank
+include 'config.php';
    
    
    
@@ -103,10 +102,10 @@ $sql = "SELECT * FROM movie WHERE c09='$movie'";
 
   $movie=$zeile['c09'];
   $movie2=str_replace('tt', '', $movie);
-  $filename="./posters/".$movie2.".jpg";
-  $filename2="./posters/".$movieid2.".jpg";
+  $filename="../posters/".$movie2.".jpg";
+  $filename2="../posters/".$movieid2.".jpg";
   	$title=$zeile['c00'];
-//	echo "&nbsp;&nbsp;&nbsp;$title</h1>($movie)<h1>";
+//	<h1>";
 	$tileleng = strlen($title);
 	if($tileleng<="15") {$fontsize="360%";} else {$fontsize="180%";}
 	if($tileleng<="32") {$fontsize="250%";} else {$fontsize="180%";}
@@ -214,9 +213,9 @@ echo "</table><br>Inhaltsangabe:<br><br>";
   $play=$zeile['idMovie'];
   
   if($ip=="192.168.2.2") {
-echo "<center><br><br><a href='#' onClick='Fenster2(\"".$play."\")'><img src=images/PlayerPlay.png width='32' height='32'></a>";
-echo "<a href='#' onClick='Fenster3()'><img src=images/PlayerPause.png width='32' height='32'></a>"; 
-echo "<a href='#' onClick='Fenster1()'><img src=images/PlayerStop.png width='32' height='32'></a></center>"; 
+echo "<center><br><br><a href='#' onClick='Fenster2(\"".$play."\")'><img src=../images/PlayerPlay.png width='32' height='32'></a>";
+echo "<a href='#' onClick='Fenster3()'><img src=../images/PlayerPause.png width='32' height='32'></a>"; 
+echo "<a href='#' onClick='Fenster1()'><img src=../images/PlayerStop.png width='32' height='32'></a></center>"; 
 
 
 
