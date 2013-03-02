@@ -13,7 +13,7 @@ function Fenster1()
  var hoehe=150; 
  var positionX=((screen.availWidth / 2) - breite / 2); 
  var positionY=((screen.availHeight / 2) - hoehe / 2); 
- var url='./scripts/stop.php'; 
+ var url='stop.php'; 
  pop=window.open('','','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,fullscreen=0,width='+breite+',height='+hoehe+',top=10000,left=10000'); 
  pop.blur(); 
  pop.resizeTo(breite,hoehe); 
@@ -29,7 +29,7 @@ function Fenster2(play)
  var hoehe=150; 
  var positionX=((screen.availWidth / 2) - breite / 2); 
  var positionY=((screen.availHeight / 2) - hoehe / 2); 
- var url='./scripts/play.php?play='+play+''; 
+ var url='play.php?play='+play+''; 
  pop=window.open('','','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,fullscreen=0,width='+breite+',height='+hoehe+',top=10000,left=10000'); 
  pop.blur(); 
  pop.resizeTo(breite,hoehe); 
@@ -191,13 +191,13 @@ if($trailer=="") {$trailer="http://www.google.de/#q=$title Trailer";}
 $imrating=str_replace('00000', '', $imrating);
 $dauer= $dauer/60;
 $rating=$zeile['c12'];
-if(strpos($rating,"Rated NC-17")!==false) {$fsk="<img src=images/de_18.png width='29' hight='29'>";}
-if(strpos($rating,"Rated R for")!==false) {$fsk="<img src=images/de_16.png width='29' hight='29'>";}
-if(strpos($rating,"Rated PG-13")!==false) {$fsk="<img src=images/de_12.png width='29' hight='29'>";}
-if(strpos($rating,"Rated 12")!==false) {$fsk="<img src=images/de_12.png width='29' hight='29'>";}
-if(strpos($rating,"Rated PG for")!==false) {$fsk="<img src=images/de_6.png width='29' hight='29'>";}
-if(strpos($rating,"Rated G for")!==false) {$fsk="<img src=images/de_0.png width='29' hight='29'>";}
-if($rating=="") {$fsk="<img src=images/rating_not_rated.jpg width='29' hight='29'>";}
+if(strpos($rating,"Rated NC-17")!==false) {$fsk="<img src=../images/de_18.png width='29' hight='29'>";}
+if(strpos($rating,"Rated R for")!==false) {$fsk="<img src=../images/de_16.png width='29' hight='29'>";}
+if(strpos($rating,"Rated PG-13")!==false) {$fsk="<img src=../images/de_12.png width='29' hight='29'>";}
+if(strpos($rating,"Rated 12")!==false) {$fsk="<img src=../images/de_12.png width='29' hight='29'>";}
+if(strpos($rating,"Rated PG for")!==false) {$fsk="<img src=../images/de_6.png width='29' hight='29'>";}
+if(strpos($rating,"Rated G for")!==false) {$fsk="<img src=../images/de_0.png width='29' hight='29'>";}
+if($rating=="") {$fsk="<img src=../images/rating_not_rated.jpg width='29' hight='29'>";}
 echo "<table border='1' bgcolor='#000000'>";
 echo "<tr>";
 echo "<td>Genre: $genre</td>
@@ -225,7 +225,7 @@ echo "<a href='#' onClick='Fenster1()'><img src=../images/PlayerStop.png width='
 mysql_free_result( $db_erg );
 
 a:
-echo "<iframe style='border: none;' src='scripts/whats.php'  scrolling='no' height='40' name='SELFHTML_in_a_box'></iframe>";
+echo "<iframe style='border: none;' src='whats.php'  scrolling='no' height='40' name='SELFHTML_in_a_box'></iframe>";
 
 
 
