@@ -162,7 +162,7 @@ position:fixed;
 		</form>
 		<img src='images/spacer.jpg' width='1' height='6' alt=''>
 										<div name="filterddd" style='position:absolute; z-index:-50;'>
-				<form name="form1" action="index.php" method="post">
+				<form name="form1" action="indexmovie.php" method="post">
 			<select name="filter" onchange="javascript:document.form1.submit();">
 		<option <?php echo $xno; ?>>KeinFilter</option>	
 		<option <?php echo $x720; ?>>720</option>
